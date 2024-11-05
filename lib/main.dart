@@ -4,6 +4,7 @@ import 'package:newpractise/api.dart';
 
 void main() {
   runApp(MaterialApp(
+    color: Colors.grey.shade200,
     debugShowCheckedModeBanner: false,
     home: MovieSearchApp(),
   ));
@@ -76,6 +77,7 @@ class _MovieSearchAppState extends State<MovieSearchApp> {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.grey.shade200,
         title: Text(
           'Home',
@@ -117,16 +119,7 @@ class _MovieSearchAppState extends State<MovieSearchApp> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            Text(
-              'Popular Movies',
-              style: TextStyle(
-                fontFamily: 'Montserrat',
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 10),
+            SizedBox(height: 16),
             _isLoading
                 ? Center(child: CircularProgressIndicator())
                 : Expanded(
@@ -190,7 +183,7 @@ class card extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: 0.3 * w,
+                    width: 0.4 * w,
                   ),
                   Expanded(
                     child: Padding(
@@ -219,7 +212,7 @@ class card extends StatelessWidget {
                           SizedBox(height: 10),
                           Container(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 4),
+                                horizontal: 15, vertical: 2),
                             decoration: BoxDecoration(
                               color: double.tryParse(rating) != null &&
                                       double.parse(rating) >= 7
@@ -250,8 +243,8 @@ class card extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               child: Image.network(
                 'https://image.tmdb.org/t/p/w500$posterPath',
-                width: 100,
-                height: 180,
+                width: 130,
+                height: 230,
                 fit: BoxFit.cover,
               ),
             ),
